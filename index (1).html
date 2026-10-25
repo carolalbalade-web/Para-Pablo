@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buenos días, mi amor 💋</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;overflow-x:hidden;background:#fff1ee;color:#763e50;font-family:'DM Sans',sans-serif;padding:28px 18px}body:before{content:'';position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 15% 20%,#ffd8df 0,transparent 50%),radial-gradient(ellipse at 85% 75%,#e6dcfa 0,transparent 50%),linear-gradient(140deg,#fff8ed,#fff0f1)}.orb{position:fixed;width:300px;height:300px;background:#fff7d0;filter:blur(55px);border-radius:50%;top:-130px;right:-100px;z-index:-1;animation:drift 10s ease-in-out infinite alternate}.card{position:relative;text-align:center;width:min(100%,590px);padding:48px 28px 40px;background:#fffaf6bd;border:1px solid #fff;box-shadow:0 24px 90px #9e53651a;border-radius:160px 160px 32px 32px;backdrop-filter:blur(14px)}.label{font-size:10px;letter-spacing:4px;text-transform:uppercase;animation:enter 1s both}.emoji{display:block;font-size:78px;margin:25px auto 15px;width:max-content;animation:kiss 2.8s ease-in-out infinite;filter:drop-shadow(0 10px 12px #db917e25)}h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.13;margin:15px 0 22px;letter-spacing:-1.8px;animation:enter 1s .2s both}h1 em{display:block;color:#c46f88;font-weight:500}.love{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,5.5vw,33px);font-style:italic;margin:0 0 24px;animation:enter 1s .65s both}.love span{display:inline-block;animation:breathe 3s 2s ease-in-out infinite}.sorry{font-size:14px;line-height:1.7;color:#947782;animation:enter 1s 1s both;margin:0}.thanks{font-size:16px;margin:12px 0 27px;animation:enter 1s 1.3s both}.divider{width:45px;height:1px;background:#dba4b4;margin:24px auto}button{border:1px solid #e4bac6;background:#fff6f5;color:#955268;font:500 13px 'DM Sans',sans-serif;border-radius:30px;padding:14px 24px;cursor:pointer;transition:transform .2s,background .2s;animation:enter 1s 1.6s both}button:hover{background:#ffe5ec;transform:translateY(-3px)}button:focus-visible{outline:3px solid #b86585;outline-offset:4px}.note{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#ac8e97;margin-top:25px}.heart{position:fixed;pointer-events:none;z-index:-1;color:#d48da3;animation:floatUp linear forwards;opacity:0}.burst{position:fixed;pointer-events:none;z-index:10;font-size:26px;animation:fly 1.8s ease-out forwards}.message{min-height:23px;font-size:13px;color:#b26880;margin:16px 0 0} @keyframes enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes kiss{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(7deg) scale(1.09)}}@keyframes breathe{50%{transform:translateY(-4px)}}@keyframes drift{to{transform:translate(-100px,150px)}}@keyframes floatUp{0%{opacity:0;transform:translateY(0) rotate(0)}15%,80%{opacity:.35}100%{opacity:0;transform:translateY(-115vh) rotate(35deg)}}@keyframes fly{0%{opacity:1;transform:translate(-50%,-50%) scale(.5)}100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) rotate(var(--r)) scale(1.4)}}@media(prefers-reduced-motion:reduce){*,*:before{animation:none!important;transition:none!important}.heart{display:none}}
+</style>
+</head>
+<body>
+<div class="orb" aria-hidden="true"></div>
+<main class="card">
+<div class="label">Un mensajito para ti</div>
+<div class="emoji" role="img" aria-label="Emoji mandando un besito">😘</div>
+<h1>Buenos días,<em>mi amor</em></h1>
+<p class="love"><span>Te adoro demasiado</span></p>
+<div class="divider" aria-hidden="true"></div>
+<p class="sorry">Perdón por ayer, estaba muy quemada</p>
+<p class="thanks">Gracias por todo siempre ♡</p>
+<button type="button" id="kiss">Te mando un besito 💋</button>
+<p class="message" id="message" aria-live="polite"></p>
+<div class="note">Con todo mi amor</div>
+</main>
+<script>
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function heart(){const el=document.createElement('span');el.className='heart';el.setAttribute('aria-hidden','true');el.textContent='♡';el.style.left=Math.random()*100+'vw';el.style.bottom='-45px';el.style.fontSize=16+Math.random()*30+'px';el.style.animationDuration=9+Math.random()*6+'s';document.body.append(el);el.addEventListener('animationend',()=>el.remove())}
+if(!reduced){heart();setInterval(()=>{if(!document.hidden)heart()},1000)}
+document.getElementById('kiss').addEventListener('click',e=>{document.getElementById('message').textContent='Y otro… y otro… y mil más para ti ♡';if(reduced)return;const r=e.currentTarget.getBoundingClientRect();for(let i=0;i<15;i++){const el=document.createElement('span');el.className='burst';el.setAttribute('aria-hidden','true');el.textContent=i%3?'💕':'💋';el.style.left=r.left+r.width/2+'px';el.style.top=r.top+'px';el.style.setProperty('--x',(Math.random()-.5)*360+'px');el.style.setProperty('--y',-80-Math.random()*300+'px');el.style.setProperty('--r',(Math.random()-.5)*70+'deg');document.body.append(el);el.addEventListener('animationend',()=>el.remove())}});
+</script>
+</body></html>
